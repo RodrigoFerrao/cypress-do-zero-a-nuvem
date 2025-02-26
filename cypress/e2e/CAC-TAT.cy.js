@@ -15,7 +15,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#lastName').type('Ferrão')
     cy.get('#email').type('teste@email.com')
     cy.get('#open-text-area').type('Mensagem de feedback um pouco longa, porém com delay 0', {delay : 0})
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
     cy.get('span[class="success"]').should('be.visible')
   });
 
@@ -24,7 +24,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#lastName').type('Ferrão')
     cy.get('#email').type('teste@email,com')
     cy.get('#open-text-area').type('teste')
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
     cy.get('span[class="error"]').should('be.visible')
   });
 
@@ -39,7 +39,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#email').type('teste@email.com')
     cy.get('#open-text-area').type('Mensagem de feedback um pouco longa, porém com delay 0', {delay : 0})
     cy.get('#phone-checkbox').check()
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
     cy.get('span[class="error"]').should('be.visible')
   });
 
@@ -63,7 +63,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   it('Valida mensagem de erro - Campos Obrigatórios', () => {
-  cy.get('button[type="submit"]').click()
+  cy.contains('button', 'Enviar').click()
   cy.get('span[class="error"]').should('be.visible')
 })
 
