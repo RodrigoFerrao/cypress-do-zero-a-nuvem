@@ -95,6 +95,11 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#product').select(1)
     cy.get('#product').should('have.value', 'blog')
     })
+
+  it.only('marca o tipo de atendimento "Feedback"', () => {
+    cy.get('input[value="feedback"]').check()
+    cy.get('input[value="feedback"]').should('be.checked')
+    })
 });
 
 
